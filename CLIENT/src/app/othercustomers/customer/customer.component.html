@@ -1,0 +1,175 @@
+<div class="main-content-container container-fluid px-4">
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+      <h3 class="page-title">Miscellaneous Delivery Detail</h3>
+    </div>
+  </div>
+
+  <div class="card card-small mb-4">
+    <div class="card-header border-bottom">
+      <h6 class="m-0">Miscellaneous Delivery Detail</h6>
+    </div>
+    <div class="card-body list-group list-group-flush">
+      <form class="form-horizontal list-group-item" [formGroup]="othercustomers" method="post">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="col-form-label" for="cylinderType"> Cylinder Type: </label>
+              <div>
+                <select class="form-control" [(ngModel)]="cylinderType" formControlName="cylinderType" required>
+                  <option value="">--select--</option>
+                  <option>3kg</option>
+                  <option>5kg</option>
+                  <option>8kg</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="col-form-label" class='quantity' for="quantity"> Quantity :  </label>
+
+              <div>
+                <input class="form-control" id="filledCylinder" type="number" [(ngModel)]="quantity"
+                  formControlName="quantity" name="quantity" min="1" max="100" placeholder="Eg:4">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="col-md-6 col-form-label" for="accessories"
+              class='accessories'> Accessories:(optional) </label>
+
+           
+              <div>
+                <select class="form-control" [(ngModel)]="accessories" formControlName="accessories" name="accessories">
+                  <option value="">--select--</option>
+                  <option>Regulator</option>
+                  <option>Pipe</option>
+                  <option>Nerve</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="col-md-6 col-form-label" class='accQuantity' for="accQuantity"> Accessories Quantity :
+               </label>
+              <div>
+                <input class="form-control" id="accQuantity" type="number" [(ngModel)]="accQuantity"
+                formControlName="accQuantity" name="accQuantity" min="1" max="100" placeholder="Eg:2">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="referenceNo"> Reference No: </label>
+              
+              <div>
+                <input type="text" class="form-control" id="referenceNo" [(ngModel)]="referenceNo"
+                formControlName="referenceNo" placeholder="Enter Reference Number" name="referenceNo">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="name"> Name: </label>
+              <div>
+                <input type="text" class="form-control" id="name" [(ngModel)]="name" formControlName="name"
+                placeholder="Enter Your Name" name="name">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+         
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="mobileNo"> MobileNo : </label>
+             
+              <div>
+                <input type="tel" class="form-control" id="mobileNo" [(ngModel)]="mobileNo" formControlName="mobileNo"
+                placeholder="123-010-4587" required rows="1">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="address"> Address : </label>
+              <div>
+                <!-- <input type="text" class="form-control" [(ngModel)]="address" formControlName="address"
+                placeholder="Enter address" name="address"> -->
+                <textarea class="form-control"  name="" id="remark" cols="10" rows="3" [(ngModel)]="address" formControlName="address" placeholder="Enter  Address"></textarea>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <!-- [disabled]="othercustomers.invalid" -->
+    <div class="card-footer">
+      <button type="button" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#cylindermyModal"
+      [disabled]="othercustomers.invalid">ADD</button>
+    </div>
+  </div>
+
+</div>
+
+  
+
+  <div class="modal fade" id="cylindermyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header btn-primary" >
+                <h5 class="modal-title" id="exampleModalLabel" style="color: white; margin-left: 100px; ">
+                  Review cylinder detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" action="" method="post">
+                <div class="form-row-group">
+                  <label class="col-md-6 col-form-label text-right" for="">Cylinder Type :</label>
+                  <label class="col-md-6 col-form-label" for="">{{cylinderType}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Quantity:</label>
+                  <label class="col-md-6 col-form-label" for="">{{quantity}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Accessories:</label>
+                  <label class="col-md-6 col-form-label" for="">{{accessories}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Accessories Quantity:</label>
+                  <label class="col-md-6 col-form-label" for="">{{accQuantity}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">ReferenceNo:</label>
+                  <label class="col-md-6 col-form-label" for="">{{referenceNo}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Name:</label>
+                  <label class="col-md-6 col-form-label" for="">{{name}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Address:</label>
+                  <label class="col-md-6 col-form-label" for="">{{address}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">MobileNo:</label>
+                  <label class="col-md-6 col-form-label" for="">{{mobileNo}}</label>
+                </div>
+              </form> 
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="onadd();">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+        <h3 class="page-title">Register new driver</h3>
+      </div>
+    </div>
+  
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">Enter driver details</h6>
+      </div>
+      <div class="card-body list-group list-group-flush">
+        <form class="form-horizontal list-group-item"  [formGroup]="driverdata">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label class=" col-form-label" for="driverName">Driver name<span class="asterisk-mark">*</span>:</label>
+                    <div class=" ">
+                        <input class="form-control" id="driverName" type="text " [(ngModel)]="driverName" formControlName="driverName"  name="driverName" placeholder="Name of the driver." required>
+                        <span class="color" *ngIf="driverdata.controls.driverName.invalid && driverdata.controls.driverName.dirty">*driver name is required</span> 
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label class=" col-form-label" for="dateOfBirth">Date Of birth<span class="asterisk-mark">*</span>:</label>
+                    <div>
+                        <input class="form-control" id="dateOfBirth" type="date" [(ngModel)]="dateOfBirth" formControlName="dateOfBirth"  name="dateOfBirth" required>
+                        <span class="color" *ngIf="driverdata.controls.dateOfBirth.invalid && driverdata.controls.dateOfBirth.dirty">*dateofbirth is required</span> 
+                      </div>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class=" col-form-label" for="gender">Gender<span class="asterisk-mark">*</span>:</label>
+                        <div class="">
+                            <select class="form-control" id="gender" [(ngModel)]="gender" formControlName="gender" name="gender" required>
+                                <option value="" disabled>--Select--</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class=" col-form-label" for="licenceNo">Driving licence no.<span class="asterisk-mark">*</span>:</label>
+                        <div class=" ">
+                            <input class="form-control" id="licenceNo" type="text" [(ngModel)]="licenceNo" formControlName="licenceNo"  name="licenceNo" placeholder="Driving licence no. of the driver." required>
+                            <span class="color" *ngIf="driverdata.controls.licenceNo.invalid && driverdata.controls.licenceNo.dirty">*driver licenceNo. is required</span>
+                           </div>
+                       </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class=" col-form-label" for="mobile"> Mobile no.<span class="asterisk-mark">*</span>:</label>
+                    <div class=" ">
+                        <input class="form-control " id="mobile" [(ngModel)]="mobile" formControlName="mobile" type="number" name="mobile" placeholder="Enter driver mobile no. " required>
+                        <span class="color" *ngIf="driverdata.controls.mobile.invalid && driverdata.controls.mobile.dirty">*mobile no  required</span>
+                      </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class=" col-form-label" for="address"> Address<span class="asterisk-mark">*</span>:</label>
+                    <div class=" ">
+                        <textarea rows="2" cols="5" class="form-control " id="address" [(ngModel)]="address" formControlName="address"  name="address" placeholder="Enter full address." required></textarea>
+                        <span class="color" *ngIf="driverdata.controls.address.invalid && driverdata.controls.address.dirty">*Address required</span>
+                       </div>
+                 </div>
+                </div>
+              </div>
+          </form>
+      </div>
+        <div class="card-footer">
+            <button  class="btn btn-md btn-primary float-right"  [disabled]="driverdata.invalid" (click)="insertData();">ADD</button>
+        </div>
+    </div>
+  
+  </div>
+  
+  
+   <!-- <div class="container-fluid">
+    <div class="card">
+        <div class="card-header card-primary text-center"><strong>Add Driver Details</strong></div>
+        <div class="card-body">
+            <form class="form-horizontal" [formGroup]="driverdata"  method="post">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="driverName">Driver Name :</label>
+                    <div class="col-md-9 ">
+                        <input class="form-control" id="driverName" type="text " [(ngModel)]="driverName" formControlName="driverName"  name="driverName" placeholder="Enter Driver Name" required>
+                        <span class="color" *ngIf="driverdata.controls.driverName.invalid && driverdata.controls.driverName.dirty">*driver name is required</span> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="dateOfBirth">Date Of Birth:</label>
+                  <div class="col-md-9 ">
+                      <input class="form-control" id="dateOfBirth" type="date" [(ngModel)]="dateOfBirth" formControlName="dateOfBirth"  name="dateOfBirth" placeholder="Enter Dirver DateOfBirth"  required>
+                      <span class="color" *ngIf="driverdata.controls.dateOfBirth.invalid && driverdata.controls.dateOfBirth.dirty">*dateofbirth is required</span> 
+                    </div>
+               </div>
+               <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="gender">Gender</label>
+                <div class="col-md-9">
+                    <select class="form-control" id="gender" [(ngModel)]="gender" formControlName="gender" name="gender" required>
+                      <option value="" disabled >Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+               <div class="form-group row">
+                 <label class="col-md-3 col-form-label" for="licenceNo">Licence Number:</label>
+                 <div class="col-md-9 ">
+                     <input class="form-control" id="licenceNo" type="text" [(ngModel)]="licenceNo" formControlName="licenceNo"  name="licenceNo" placeholder="Driver Licence Number" required>
+                     <span class="color" *ngIf="driverdata.controls.licenceNo.invalid && driverdata.controls.licenceNo.dirty">*driver licenceNo. is required</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="mobile"> Mobile Number  :</label>
+              <div class="col-md-9 ">
+                  <input class="form-control " id="mobile" [(ngModel)]="mobile" formControlName="mobile" type="number" name="mobile" placeholder="Enter mobile Number " required>
+                  <span class="color" *ngIf="driverdata.controls.mobile.invalid && driverdata.controls.mobile.dirty">*mobile no  required</span>
+                </div>
+          </div>
+          <div class="form-group row">
+             <label class="col-md-3 col-form-label" for="address"> Address :</label>
+         <div class="col-md-9 ">
+             <textarea rows="2" cols="5" class="form-control " id="address" [(ngModel)]="address" formControlName="address"  name="address" placeholder="Enter Address Details" required></textarea>
+             <span class="color" *ngIf="driverdata.controls.address.invalid && driverdata.controls.address.dirty">*Address required</span>
+            </div>
+      </div>
+            </form>
+            <div class="card-footer">
+          <button  class="btn btn-md btn-primary float-right"  [disabled]="driverdata.invalid" (click)="insertData();">ADD</button>
+      </div> 
+        </div>
+    </div> -->
+        
+       
+      

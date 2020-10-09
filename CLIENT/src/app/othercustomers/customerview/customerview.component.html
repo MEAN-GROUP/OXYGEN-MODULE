@@ -1,0 +1,57 @@
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">Review cylinder detail<strong></strong> </div>
+        <div class="card-body">
+            <form class="form-horizontal" #cylinderForm="ngForm" (ngSubmit)="onadd()" method="post">
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label text-right" for="">Cylinder Type :</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.cylinderType}}</label>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label text-right" for="">Quantity :</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.quantity}}</label>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label text-right" for="">Accessories:(optional):</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.accessories}}</label>
+                </div>
+
+                <div class="form-row-group ">
+                     <label class="col-md-3 col-form-label" id='accessoriesqua' for="accessoriesqua">AccessoriesQuantity : </label>
+            
+                     <label class="col-md-6 col-form-label" for="">{{viewdata.accessoriesqua}}</label>
+                 </div>
+
+
+                 <div class="form-group">
+                    <label for="referenceNo">Reference No:</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.referenceNo}}</label>
+                    
+                </div>
+
+
+                <div class="form-group">
+                    <label for="address">Address :</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.address}}</label>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="remark"> Remark :</label>
+                    <label class="col-md-6 col-form-label" for="">{{viewdata.remark}}</label>
+                </div>
+            
+        
+        <div class="card-footer">
+            <a routerLink="/customer" routerLinkActive="active" ng-reflect-router-link-active="active">
+            <button class="btn btn-md btn-info" type="reset"> Back</button>
+            </a>
+            <button class="btn btn-md btn-success float-right" type="submit"> Deliver</button>
+        </div>
+        </form>
+        
+    </div>
+</div>
+

@@ -1,0 +1,173 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <h3 class="page-title">Book ambulance</h3>
+        </div>
+    </div>
+
+    <div class="card card-small mb-4">
+        <div class="card-header border-bottom">
+            <h6 class="m-0">Enter booking details</h6>
+        </div>
+        <div class="card-body list-group list-group-flush">
+            <form class="form-horizontal list-group-item" [formGroup]="bookingdata">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="hospitalId">Hospital ID :</label>
+                            <div>
+                                <input class="form-control " id="hospitalId" [(ngModel)]="hospitalId" formControlName="hospitalId" type="text" placeholder="Enter Hospital Id" required>
+                                <span class="color" *ngIf="bookingdata.controls.hospitalId.invalid && bookingdata.controls.hospitalId.dirty">*hospital id required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="ambulanceId">Ambulance Id :</label>
+                            <div>
+                                <input class="form-control " id="ambulanceId" [(ngModel)]="ambulanceId" formControlName="ambulanceId" type="text " name="ambulanceId" placeholder="Enter Ambulance Id" required>
+                                <span class="color" *ngIf="bookingdata.controls.ambulanceId.invalid && bookingdata.controls.ambulanceId.dirty">*ambulance id required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="patientId">Patient Id:</label>
+                            <div >
+                                <input class="form-control " id="patientId" [(ngModel)]="patientId" formControlName="patientId"
+                                    type="text " name="patientId" placeholder="Enter Patient Id " required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.patientId.invalid && bookingdata.controls.patientId.dirty">*patient
+                                    id required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="patientName">Patient Name :</label>
+                            <div >
+                                <input class="form-control " id="patientName" [(ngModel)]="patientName"
+                                    formControlName="patientName" type="text " name="patientName"
+                                    placeholder="Enter Patient Name " required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.patientName.invalid && bookingdata.controls.patientName.dirty">*name
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="age">Patient Age :</label>
+                            <div >
+                                <input class="form-control " id="age" [(ngModel)]="age" formControlName="age" type="number"
+                                    name="age" placeholder="Age" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.age.invalid && bookingdata.controls.age.dirty">*age
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="guardianName"> Guardian Name :</label>
+                            <div >
+                                <input class="form-control " id="guardianName" [(ngModel)]="guardianName"
+                                    formControlName="guardianName" type="text" name="guardianName"
+                                    placeholder="Enter Guardian Name" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.guardianName.invalid && bookingdata.controls.guardianName.dirty">*required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="latitude"> Latitude :</label>
+                            <div >
+                                <input class="form-control " id="latitude" [(ngModel)]="latitude" formControlName="latitude"
+                                    type="number" name="latitude" placeholder="Eg:89.93484" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.latitude.invalid && bookingdata.controls.latitude.dirty">*location
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="longitude"> Longitude :</label>
+                            <div >
+                                <input class="form-control " id="longitude" [(ngModel)]="longitude" formControlName="longitude"
+                                    type="number" name="longitude" placeholder="Eg:89.9348" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.longitude.invalid && bookingdata.controls.longitude.dirty">*location
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="dateTime"> DateTime :</label>
+                            <div >
+                                <input class="form-control " id="dateTime" [(ngModel)]="dateTime" formControlName="dateTime"
+                                    type="datetime-local" name="datetime" placeholder="Enter Date" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.dateTime.invalid && bookingdata.controls.dateTime.dirty">*required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="ambulanceType">Ambulance Type:</label>
+                            <div >
+                                <select class="form-control" id="ambulanceType" [(ngModel)]="ambulanceType"
+                                    formControlName="ambulanceType" name="ambulanceType" required>
+                                    <option value="" disabled>Select Ambulance Type</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="infectious disease Ambulance">Infectious</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="mobile">Mobile No: :</label>
+                            <div >
+                                <input class="form-control " id="mobile" [(ngModel)]="mobile" formControlName="mobile"
+                                    type="number" name="mobile" placeholder="Enter Mobile Number" required>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.mobile.invalid && bookingdata.controls.mobile.dirty">*mobile no.
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="address">Address :</label>
+                            <div >
+                                <textarea rows="2" cols="5" class="form-control" id="address" [(ngModel)]="address"
+                                    formControlName="address" type="text" name="address" placeholder="Enter Patients Address"
+                                    required></textarea>
+                                <span class="color"
+                                    *ngIf="bookingdata.controls.address.invalid && bookingdata.controls.address.dirty">*address
+                                    required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-md btn-primary float-right" [disabled]="bookingdata.invalid" (click)="insertData();">Next</button>
+        </div>
+    </div>
+
+</div>

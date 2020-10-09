@@ -1,0 +1,83 @@
+<div class="main-content-container container-fluid px-4">
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <h3 class="page-title">Add hospital</h3>
+    </div>
+  </div>
+
+  <div class="card card-small mb-4">
+    <div class="card-header border-bottom">
+      <h6 class="m-0">Enter hospital details</h6>
+    </div>
+    <div class="card-body list-group list-group-flush">
+      <form class="form-horizontal list-group-item" [formGroup]="hospitaldata" >
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="hospitalName">Name of the hospital<span class="asterisk-mark">*</span>:</label>
+              <div>
+                 <input class="form-control " id="hospitalName" [(ngModel)]="hospitalName" formControlName="hospitalName" type="text " name="hospitalName" placeholder="Enter Hospital Name " required>
+                 <span class="color" *ngIf="hospitaldata.controls.hospitalName.invalid && hospitaldata.controls.hospitalName.dirty">*hospital name required</span>
+              </div>
+          </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="col-form-label" for="PhoneNo">Phone no.<span class="asterisk-mark">*</span>:</label>
+              <div>
+                 <input class="form-control " id="PhoneNo" [(ngModel)]="PhoneNo" formControlName="PhoneNo" type="number " name="PhoneNo" placeholder="Enter Hospital Phone Number " required>
+                 <span class="color" *ngIf="hospitaldata.controls.PhoneNo.invalid && hospitaldata.controls.PhoneNo.dirty">*phone number required</span>  
+                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="address">Address<span class="asterisk-mark">*</span>:</label>
+                <div>
+                    <input class="form-control " id="address" [(ngModel)]="address" formControlName="address" type="text " name="address" placeholder="Enter Hospital Address " required>
+                    <span class="color" *ngIf="hospitaldata.controls.address.invalid && hospitaldata.controls.address.dirty">*address required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label class=" col-form-label" >Pincode<span class="asterisk-mark">*</span>:</label>
+                      <div >
+                          <input class="form-control" type="text" [(ngModel)]="pincode" formControlName="pincode" placeholder="Area pincode of the hospital." required>
+                          <span class="color" *ngIf="hospitaldata.controls.pincode.invalid && hospitaldata.controls.pincode.dirty">*Area pincode is required</span>
+                         </div>
+                     </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="col-form-label" for="latitude"> Hospital Latitude<span class="asterisk-mark">*</span>:</label>
+                <div>
+                    <input class="form-control " id="latitude" [(ngModel)]="latitude" formControlName="latitude" type="number" name="latitude" placeholder="Eg:98.367626 " required>
+                    <span class="color" *ngIf="hospitaldata.controls.latitude.invalid && hospitaldata.controls.latitude.dirty">*location required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="longitude"> Hospital Longitude<span class="asterisk-mark">*</span>:</label>
+                  <div>
+                    <input class="form-control " id="longitude" [(ngModel)]="longitude" formControlName="longitude" type="number" name="longitude" placeholder="Eg:78.367626 " required>
+                    <span class="color" *ngIf="hospitaldata.controls.longitude.invalid && hospitaldata.controls.longitude.dirty">*location required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+    </div>
+      <div class="card-footer">
+        <button class="btn btn-md btn-primary float-right"  [disabled]="hospitaldata.invalid" (click)="insertData();">Add</button>
+      </div>
+  </div>
+
+</div>
+
+    

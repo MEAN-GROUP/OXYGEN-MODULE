@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card-header {
+    background-color: #64a5f8 !important;
+}
+.card-header h6{
+    color: #211b1b;
+    text-align: center;
+}
+.asterisk-mark {
+    color: red;
+    font-weight: bold;
+  }
+  .main-content {
+      min-height: 500px !important;
+  }
+  .main-content-container {
+      min-height: 700px;
+  }
+  .no-record-found {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      padding: 10px;
+  }
+  .danger-modal .modal-header {
+    background-color: red !important;
+    border-color: red !important;
+  }
+  .danger-modal .modal-header h5 {
+    color: white !important;
+  }
+  .danger-modal .modal-header .close {
+    color: black !important;
+  }

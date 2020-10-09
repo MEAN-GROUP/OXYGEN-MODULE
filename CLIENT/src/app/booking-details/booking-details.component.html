@@ -1,0 +1,97 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+        <h3 class="page-title">Ambulance bookings </h3>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="col">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Booking List</h6>
+          </div>
+          <div class="card-body p-0 pb-3 text-center">
+            <table class="table mb-0 table-responsive-sm table-bordered table-striped">
+              <thead class="bg-light">
+                <tr class="border-1">
+                    <th scope="col">SL</th>
+                    <th scope="col">Ambulance Id</th>
+                    <th scope="col">Booking Id</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Date </th>
+                    <th scope="col">Ambulance Type</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Driver</th>
+                    <th scope="col">Cancel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of result ; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ x.ambulanceId }}</td>
+                    <td>{{ x.bookingId }}</td>
+                    <td>{{ x.patientName }}</td>
+                    <td>{{ x.dateTime }}</td>
+                    <td>{{ x.ambulanceType }}</td>
+                    <td>{{ x.mobile }}</td>
+                    <td>{{ x.address }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info" type="submit" (click)="editdata(x.bookingId);"> Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal" data-target="#cancelAmbulanceModal" (click)="bookinglist(x);">Driver</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal" data-target="#cancelAmbulanceModal" (click)="bookinglist(x);">cancel</button>
+                    </td>
+                
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+<div class="modal fade" id="cancelAmbulanceModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header btn-danger">
+            <h5 class="modal-title">Do you want to confirm!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" action="" method="post">
+                <div class="form-group row">
+                <label class="col-md-6 col-form-label text-right" for="">Ambulance Id :</label>
+                <label class="col-md-6 col-form-label" for="">{{details.ambulanceId}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Booking Id:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.bookingId}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Patient Name :</label>
+                <label class="col-md-6 col-form-label" for="">{{details.patientName}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Date:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.dateTime}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Ambulance Type:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.ambulanceType}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Mobile No. :</label>
+                <label class="col-md-6 col-form-label" for="">{{details.mobile}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Address:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.address}}</label>
+                </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+           
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <br>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" (click)="cancelAmulance()" >Confirm</button>
+                </div>
+                </div>
+                    
+
+        

@@ -1,0 +1,277 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+        <h3 class="page-title">Oxygen order list </h3>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="col">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">OXYGEN ORDER LIST FROM HOSPITAL</h6>
+          </div>
+          <div class="card-body p-0 pb-3 text-center">
+            <table class="table mb-0  table-responsive-sm table-bordered table-striped">
+              <thead class="bg-light">
+                <tr class="border-1">
+                   
+                    <th scope="col">Sl No</th>
+                    <th scope="col">DateTime</th>
+                    <th scope="col">Patient ID</th>
+                    <th scope="col">Cylinder Type</th>
+                    <th scope="col">Quantity</th>
+                    <!-- <th scope="col">Order Number</th> -->
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">DETAILS</th>
+                    <th scope="col">OUT FOR DELIVER</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of orderdata  let i=index">
+                    <td>{{ i +1 }}</td>
+                    <td>{{x.dateTime}}</td>
+                    <td>{{x.patientId}}</td>
+                    <td>{{x.cylinderType}}</td>
+                    <td>{{x.quantity}}</td>
+                    <!-- <td>{{x.orderNo}}</td> -->
+                    <td>{{x.patientName}}</td>
+                    <td>{{x.address}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info" type="submit" (click)="orderdetails(x);" data-toggle="modal" data-target="#orderdetails" data-backdrop="static" data-keyboard="false"> View</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" type="submit" (click)="orderdetails(x);" data-toggle="modal" data-target="#deleverycylinder" data-backdrop="static" data-keyboard="false"> DELIVER</button>
+                    </td>
+                    <!-- <td>
+                        <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal" data-target="#cancelkit" data-backdrop="static" data-keyboard="false"> CANCEL</button>
+                    </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <strong> OXYGEN ORDER LIST FROM HOSPITAL</strong>
+        </div>
+         <div class="card-body" >
+            <table class="table table-responsive-sm table-bordered table-striped">
+             <thead class="text-center">
+                <tr>
+                    <th>Sl No</th>
+                    <th>DateTime</th>
+                    <th>Patient ID</th>
+                    <th>Cylinder Type</th>
+                    <th>Quantity</th>
+                    <!-- <th>Order Number</th> -->
+                    <th>Patient Name</th>
+                    <th>Address</th>
+                    <th>DETAILS</th>
+                    <th>OUT FOR DELIVER</th>
+               </tr>
+               </thead>
+               <tbody class="text-center">
+                    <tr *ngFor="let x of orderdata  let i=index">
+                        <td>{{ i +1 }}</td>
+                        <td>{{x.dateTime}}</td>
+                        <td>{{x.patientId}}</td>
+                        <td>{{x.cylinderType}}</td>
+                        <td>{{x.quantity}}</td>
+                        <!-- <td>{{x.orderNo}}</td> -->
+                        <td>{{x.patientName}}</td>
+                        <td>{{x.address}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info" type="submit" (click)="orderdetails(x);" data-toggle="modal" data-target="#orderdetails" data-backdrop="static" data-keyboard="false"> View</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" type="submit" (click)="orderdetails(x);" data-toggle="modal" data-target="#deleverycylinder" data-backdrop="static" data-keyboard="false"> DELIVER</button>
+                        </td>
+                        <!-- <td>
+                            <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal" data-target="#cancelkit" data-backdrop="static" data-keyboard="false"> CANCEL</button>
+                        </td> -->
+                    </tr>
+                </tbody>
+        
+            </table>
+
+            <!-- <nav class="float-right">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav> -->
+        </div>
+        
+    </div>
+</div>
+
+<!-- modal start for Add cylinder section -->
+
+<div class="modal fade " id="orderdetails" tabindex="1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header addheader ">
+                <h5 class="modal-title " id="editModalLabel ">Review order details</h5>
+                <button type="button " class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true ">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body modal-dialog-centered">
+                <form class="form-horizontal" action="" method="post">
+                    <div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Patient id :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.patientId}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Patient name :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.patientName}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Father name :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.fatherName}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Cylinder type :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.cylinderType}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Mobile No :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.mobileNo}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Time of order :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.dateTime}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Longitude :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.longitude}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Latitude :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.latitude}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Age :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.age}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Patient address :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.address}}<br></label>
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Pincode :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetail.pincode}}<br></label>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#deleverycylinder" data-backdrop="static" data-keyboard="false">confirm</button>
+                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">cancel</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal start for confirm cylinder section -->
+
+<div class="modal fade " id="deleverycylinder" tabindex="1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header addheader ">
+                <h5 class="modal-title " id="editModalLabel ">Assign order</h5>
+                <button type="button " class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true ">&times;</span>
+        </button>
+            </div>
+            <form action="" method="post" #userdata="ngForm">
+                <div class="modal-body ">
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Patient id :</label>
+                        <label class="col-md-6 col-form-label" for="">{{viewdetail.patientId}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Patient name :</label>
+                        <label class="col-md-6 col-form-label" for="">{{viewdetail.patientName}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Mobile :</label>
+                        <label class="col-md-6 col-form-label" for="">{{viewdetail.mobileNo}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Time of order :</label>
+                        <label class="col-md-6 col-form-label" for="">{{viewdetail.dateTime}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Cylinder type :</label>
+                        <label class="col-md-6 col-form-label" for="">{{viewdetail.cylinderType}}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Address :</label>
+                        <label class="col -md-6col-form-label" for="">{{viewdetail.address}}
+                         </label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-6 col-form-label text-right" for="">Pincode :</label>
+                        <label class="col -md-6col-form-label" for="">{{viewdetail.pincode}}
+                         </label>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-md-12 col-form-label" for="">Order Deliver Assign To:</label>
+                        <select class="form-control " id="Id" name="Id" [(ngModel)]="data.Id" required>
+                        <option *ngFor="let x of deliverdata"  value="{{x.Id}}" >{{x.deliveryboyName}} ({{x.Id}})
+                        </option>
+                    </select>
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="adddeliveryorder()" type="submit">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- modal start for cancel cylinder section -->
+<!-- 
+<div class="modal fade " id="cancelcylinder" tabindex="1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header addheader ">
+                <h5 class="modal-title " id="editModalLabel ">Confirm order</h5>
+                <button type="button " class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true ">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body ">
+                <h4>Are you sure wants to cancel the order ?</h4>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+

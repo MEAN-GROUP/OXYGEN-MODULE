@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-primary text-center"><strong>Update Driver Details</strong></div>
+      <div class="card-body">
+        <form class="form-horizontal" [formGroup]="driverForm"  action="" method="post" enctype="multipart/form-data">
+          <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="driverName">Driver Name  :</label>
+             <div class="col-md-9 ">
+                 <input class="form-control" id="driverName" formControlName="driverName" type="text"  placeholder="Driver Name">
+                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="gender">Gender :</label>
+        <div class="col-md-9 ">
+            <input class="form-control " id="gender"  formControlName="gender" type="text" >
+            </div>
+     </div>
+          <!-- <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="dateOfBirth">Date Of Birth :</label>
+         <div class="col-md-9 ">
+             <input class="form-control " id="dateOfBirth"  formControlName="dateOfBirth" type="date"  placeholder="Date Of Birth " >
+             </div>
+      </div> -->
+         <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="address"> Driver Address  :</label>
+            <div class="col-md-9 ">
+                <input class="form-control " id="address" formControlName="address" type="text" placeholder=" Address ">
+                </div>
+         </div>
+         <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="licenceNo">Driving Licence No. :</label>
+        <div class="col-md-9 ">
+            <input class="form-control " id="licenceNo" formControlName="licenceNo" type="text" >
+             </div>
+    </div>
+    <div class="form-group row">
+       <label class="col-md-3 col-form-label" for="mobile"> Mobile No. :</label>
+   <div class="col-md-9 ">
+       <input class="form-control " id="mobile"  formControlName="mobile" type="text"  >
+       </div>
+</div>
+
+        </form>
+  
+        <div class="card-footer">
+          <button class="btn btn-md btn-primary float-right" (click)="onSubmit();" type="submit">Confirm</button>
+        </div>
+      </div>
+    </div>
+

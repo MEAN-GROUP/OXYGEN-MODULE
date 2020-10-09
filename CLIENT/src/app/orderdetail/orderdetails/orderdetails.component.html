@@ -1,0 +1,109 @@
+<!--
+<div class="container">
+   <div class="card"> --><div>
+    <!-- <form class="form-inline md-form mr-auto mb-4">
+      <div class="form-group row">
+      <label class="col-md-03 col-form-label text-right" for=""><b>Order No :</b></label>
+      <input class="col-md-06 form-control sm-2 s" type="text"  placeholder="Order No" [(ngModel)]=" orderdetail" [ngModelOptions]="{standalone: true}" aria-label="Search" required>
+      <button class="col-md-03 btn btn-md btn-primary" type="submit"  (click)="orders()" >Search</button>  
+    </div>
+     
+   </form>
+    </div>
+    <div class="card" *ngIf="order">
+    <div class="card-header text-center"> 
+      <strong> OXYGEN DELIVERED ORDER DETAIL</strong>
+    </div>
+    <div class="card-body text-center">
+        <table class="table table-responsive-md table-bordered table-striped table-sm">
+          <thead>
+          <tr >
+               <th>SL.</th> -->
+              <!-- <th>Date time</th>
+              <th>Cylinder Type</th>
+              <th>Quantity</th>
+              <th>Patient Id</th>
+              <th>Delivery Type</th>
+              <th>Reference No.</th>
+              <th>Address</th> --> 
+              <!-- <th>Remark</th> -->
+            <!-- </tr>
+      </thead>
+      <tbody>
+        <tr text-center >
+          <td>{{result.datetime}}</td>
+          <td>{{result.cylinderType}}</td>
+          <td>{{result.quantity}}</td>
+          <td>{{result.patientId}}</td>
+          <td>{{result.deliveryType}}</td>
+          <td>{{result.referenceNo}}</td>
+          <td>{{result.address}}</td> -->
+          <!-- <td>{{result.remark}}</td> -->
+        <!-- </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div> -->
+  
+    
+
+
+
+
+<div class="container">
+  <div class="card">
+      <div class="card-header text-center">
+          <strong> Oxygen Delivered Detail</strong>
+      </div>
+      <div class="card-body">
+          <table class="table table-responsive-md table-bordered table-striped table-sm">
+              <thead class="text-center">
+                  <tr>
+                    <th>Date time</th>
+                    <th>Cylinder Type</th>
+                    <th>Quantity</th>
+                    <th>Patient Id</th>
+                    <th>Order No</th>
+                    <th>Delivery Type</th>
+                    <th>Mobile No</th>
+                    <th>Name</th>
+                   
+                    <th>Address</th>
+                    <th>Reference No.</th>
+                  </tr>
+              </thead>
+              <tbody class="text-center">
+                  <tr *ngFor="let x of orderdata  let i=index">
+                      <td>{{x.dateTime}}</td>
+                      <td>{{x.cylinderType}}</td>
+                      <td>{{x.quantity}}</td>
+                      <td>{{x.patientId}}</td>
+                      <td>{{x.orderNo}}</td>
+                      <td>{{x.deliveryType}}</td>
+                      <td>{{x.mobileNo}}</td>
+                      <td>{{x.patientName}}</td>
+                      <td>{{x.address}}</td>
+                      <!-- <td>{{}}</td> -->
+                      <td>{{x.referenceNo}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          <br>
+
+          <nav class="float-right">
+              <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+          </nav>
+      </div>
+  </div>
+</div>
+
+
+

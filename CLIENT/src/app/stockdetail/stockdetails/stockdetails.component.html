@@ -1,0 +1,52 @@
+
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+        <h3 class="page-title">OXYGEN STOCK DETAIL</h3>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="col">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">OXYGEN STOCK DETAIL</h6>
+          </div>
+          <div class="card-body p-0 pb-3 text-center">
+            <table class="table mb-0 table-responsive-sm table-bordered table-striped">
+              <thead class="bg-light">
+                <tr class="border-1">
+                    <th scope="col">SL NO</th>
+                    <th scope="col">CYLINDER TYPE</th>
+                    <th scope="col">NUMBER OF FILLED CYLINDER</th>
+                    <th scope="col">NUMBER OF EMPTY CYLINDER</th>
+                    <th scope="col">NUMBER OF BOOKED CYLINDERS</th>
+                    <th scope="col">NUMBER OF DELIVERED CYLINDER</th>
+                    <th scope="col">NUMBER OF DEFECT CYLINDERS</th>
+
+                </tr>
+               
+              </thead>
+              <tbody>
+                <tr text-center *ngFor="let data of stockdata  let i=index">
+                    <td>{{ i +1 }}</td>
+                    <td>{{data.cylinderType}}</td>
+                    <td>{{data.filledCylinder}}</td>
+                    <td>{{data.blankedCylinder}}</td>
+                    <td>{{data.bookedCylinder}}</td>
+                    <td>{{data.deliveredCylinder}}</td>
+                    <td>{{data.defectCylinder}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+ 
+  

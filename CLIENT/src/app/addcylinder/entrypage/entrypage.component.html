@@ -1,0 +1,146 @@
+
+<div class="main-content-container container-fluid px-4">
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+      <h3 class="page-title">Add Oxygen Cylinder</h3>
+    </div>
+  </div>
+
+  <div class="card card-small mb-4">
+    <div class="card-header border-bottom">
+      <h6 class="m-0">Add Filled Oxygen Cylinder To Stock</h6>
+    </div>
+    <div class="card-body list-group list-group-flush">
+      <form class="form-horizontal list-group-item"  [formGroup]="entrypage" method="post">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="cylindertype">Cylinder Type<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <select class=" form-control" [(ngModel)]="cylinderType" formControlName="cylinderType" required>
+                    <option value="">--select--</option>
+                    <option>3kg</option>
+                    <option>5kg</option>
+                    <option>8kg</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="quantity">Quantity<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <input class=" form-control" id="quantity" type="number" [(ngModel)]="quantity"
+                  formControlName="quantity" min="1" max="100" placeholder="Eg:4">
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+      <div class="card-footer">
+        <button type="button" id="btn" class="btn btn-primary"  [disabled]="entrypage.invalid"  (click)="onadd();" >ADD</button>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+  <div class="card">
+    <div class="card-header text-center"><strong>Add Filled Oxygen Cylinder To Stock</strong></div>
+    <div class="card-body">
+      <form class="form-horizontal" [formGroup]="entrypage" method="post">
+        <div class="content">
+          <div class="form-row-group">
+            <label for="col-md-3 col-form-label" for="cylindertype"><b>Cylinder Type:</b></label>
+            <select class=" form-control" [(ngModel)]="cylinderType" formControlName="cylinderType" required>
+              <option value="">--select--</option>
+              <option>3kg</option>
+              <option>5kg</option>
+              <option>8kg</option>
+            </select>
+           
+
+          </div>
+
+          <div class="form-row-group ">
+            <label class=" col-form-label" for="quantity"><b>Quantity : </b></label>
+
+            <input class=" form-control" id="quantity" type="number" [(ngModel)]="quantity"
+              formControlName="quantity" min="1" max="100" placeholder="Eg:4">
+
+
+
+          </div>
+
+
+        </div>
+
+      </form>
+
+      <div class="card-footer">
+      
+        <button type="button" id="btn" class="btn btn-primary"  [disabled]="entrypage.invalid"  (click)="onadd();" >ADD</button>
+
+      </div>
+      <div class="modal fade" id="addcylindermyModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title">Review cylinder detail</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body  text-center">
+              <form class="form-horizontal" action="" method="post">
+                <div class="form-row-group">
+                  <label class="col-md-6 col-form-label text-right" for="">Cylinder Type :</label>
+                  <label class="col-md-6 col-form-label" for="">{{cylinderType}}</label>
+                  <label class="col-md-6 col-form-label text-right" for="">Quantity:</label>
+                  <label class="col-md-6 col-form-label" for="">{{quantity}}</label>
+                </div>
+              </form>
+            </div>
+           
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <br>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onadd();">Confirm</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->

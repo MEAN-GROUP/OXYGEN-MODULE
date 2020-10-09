@@ -1,0 +1,197 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+            <h3 class="page-title">Delivery Staff List </h3>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <div class="card card-small mb-4">
+                <div class="card-header border-bottom">
+                    <h6 class="m-0">Delivery Staff List</h6>
+                </div>
+                <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0 table-responsive-sm table-bordered table-striped">
+                        <thead class="bg-light">
+                            <tr class="border-1">
+                                <th>Sl No</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>DateOfBirth</th>
+                                <th>Gender</th>
+                                <th>LicenceNo</th>
+                                <th>Address</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of staffdata  let i=index">
+                                <td>{{ i +1 }}</td>
+                                <td>{{x.Id}}</td>
+                                <td>{{x.deliveryboyName}}</td>
+                                <td>{{x.dateOfBirth}}</td>
+                                <td>{{x.gender}}</td>
+                                <td>{{x.licenceNo}}</td>
+                                <td>{{x.address}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" type="submit" (click)="show(x);"
+                                        data-toggle="modal" data-target="#editModal" data-backdrop="static"
+                                        data-keyboard="false">Edit</button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" type="submit" data-toggle="modal"
+                                        data-target="#deleteIdModal" (click)="show(x);" data-backdrop="static"
+                                        data-keyboard="false">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header btn-primary" >
+                <h5 class="modal-title" id="exampleModalLabel" style="color: white; margin-left: 100px; ">
+                    DELIVERY PERSON EDIT FORM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="name">Name :</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="text" name="deliveryboyName"
+                                [(ngModel)]="deliveryboyName">
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="email">Email :</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="email" name="email" autocomplete="email"
+                                [(ngModel)]="email">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="fathername"> Father name :</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="text" name="fathername" [(ngModel)]="fathername">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="date">Date of birth :</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="date-picker" name="dob" placeholder="dd-mm-yyyy"
+                                min="1980-01-01" max="2000-12-31" [(ngModel)]="dob">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="licenceno">Driving License no.:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="text" name="licenceNo" placeholder=""
+                                [(ngModel)]="licenceNo">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="mobileno"> Mobile number:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="" type="number" name="mobileNo" placeholder=""
+                                [(ngModel)]="mobileNo">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-md-4 col-form-label" for="address"> Address:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="address" type="text" name="address" placeholder=""
+                                [(ngModel)]="address">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-4 col-form-label">Gender</label>
+                        <div class="col-md-8 col-form-label">
+                            <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="" type="radio" value="Male" name="gender"
+                                    [(ngModel)]="gender">
+                                <label class="form-check-label" for="inline-radio1">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="" type="radio" value="Female" name="gender"
+                                    [(ngModel)]="gender">
+                                <label class="form-check-label" for="inline-radio2">Female</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="edit();">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteIdModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn-danger">
+                <h5 class="modal-title " style="color: white; margin-left: 120px; "> Do you want to Delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="" method="post">
+                    <div class="row">
+
+                        <label class="col-md-6 col-form-label text-right" for="">Id :</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.Id}}</label>
+                        <label class="col-md-6 col-form-label text-right" for="">Name:</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.deliveryboyName}}</label>
+                        <label class="col-md-6 col-form-label text-right" for="">DOB :</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.dateOfBirth}}</label>
+                        <label class="col-md-6 col-form-label text-right" for="">Gender :</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.gender}}</label>
+                        <label class="col-md-6 col-form-label text-right" for="">Driving Licence No:</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.licenceNo}}</label>
+                        <label class="col-md-6 col-form-label text-right" for="">Address:</label>
+                        <label class="col-md-6 col-form-label" for="">{{showdetail.address}}</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <br>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="delete(showdetail.Id);">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

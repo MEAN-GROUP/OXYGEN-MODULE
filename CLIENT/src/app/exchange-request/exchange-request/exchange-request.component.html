@@ -1,0 +1,134 @@
+<div class="main-content-container container-fluid px-4">
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+        <h3 class="page-title">CYLINDER EXCHANGE</h3>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="col">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">REQUEST FOR CYLINDER EXCHANGE</h6>
+          </div>
+          <div class="card-body p-0 pb-3 text-center">
+            <table class="table mb-0 table-responsive-sm table-bordered table-striped">
+              <thead class="bg-light">
+                <tr class="border-1">
+                    <th>Sl No</th>
+                    <th>Exchange Request On</th>
+                    <!-- <th>OrderNo</th>  -->
+                    <th>Cylinder Type</th>
+                    <th>Quantity</th>
+                    <th>Patient Name</th>
+                    <th>Address</th>
+                    <th>Request Remark</th>
+                    <th>Detail</th>
+                    <th>Out For Deliver</th>
+                   
+                </tr>
+               
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of exchangeRequestList let i=index">
+                    <td>{{ i +1 }}</td>
+                    <!-- <td>{{x.detail.exdatetime}}</td>  -->
+                    <!-- <td>{{x.detail.orderNo}}</td> -->
+                    <td>{{x.exdateTime}}</td>
+                    <td>{{x.detail.cylinderType}}</td>
+                    <td>{{x.detail.quantity}}</td>
+                    <td>{{x.patientName}}</td>
+                    <td>{{x.address}}</td>
+                    <td>{{x.detail.reqRemark}}</td>
+                    <td>
+                      
+                        <button class="btn btn-sm btn-info" type="submit" data-toggle="modal" data-target="#exchangeRequest" data-backdrop="static" data-keyboard="false"(click)="exchangedetails(x);"> Click</button>
+                       
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-info" type="submit"  data-toggle="modal" data-target="#exchangeRequest" data-backdrop="static" data-keyboard="false"> Deliver</button>
+                     </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-- modal start for cylinder section -->
+
+<div class="modal fade " id="exchangeRequest" tabindex="1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header addheader ">
+                <h5 class="modal-title " id="exchangeRequest ">Exchange Request</h5>
+                <button type="button " class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true ">&times;</span>
+        </button>-
+            </div>
+            <div class="modal-body ">
+                <form class="form-horizontal" action="" method="post">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Patient name :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.patientName}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Father name :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.fatherName}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Cylinder type :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.detail.cylinderType}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Quantity :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.detail.quantity}}</label>
+                        </div>
+                      
+                       
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Address :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.address}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Latitude :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.latitude}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Longitude :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.longitude}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-6 col-form-label text-right" for="">Remark :</label>
+                            <label class="col-md-6 col-form-label" for="">{{viewdetails.detail.reqRemark}}</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,139 @@
+<div class="main-content-container container-fluid px-4">
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+      <h3 class="page-title">Available ambulances</h3>
+    </div>
+  </div>
+
+  <div class="card card-small mb-4">
+    <div class="card-header border-bottom">
+      <h6 class="m-0" *ngIf="!isUpdate">Add new ambulance</h6>
+      <h6 class="m-0" *ngIf="isUpdate">Update ambulance detail</h6>
+    </div>
+    <div class="card-body">
+      <br>
+          <form class="form-horizontal" [formGroup]="addAmbulance">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class=" col-form-label" for="ambulanceType">Ambulance type<span class="asterisk-mark">*</span>:</label>
+                  <div>
+                      <select class="form-control" id="ambulanceType" formControlName="ambulanceType" name="ambulanceType" required>
+                      <option value="" disabled>--Select--</option>
+                      <option value="Normal">Normal</option>
+                      <option value="infectious disease Ambulance">Infectious</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class=" col-form-label" for="ambulanceNo">Ambulance no.<span class="asterisk-mark">*</span>: (Vehicle no.) </label>
+                  <div>
+                      <input class="form-control" id="ambulanceNo" type="text" [(ngModel)]="ambulanceNo" formControlName="ambulanceNo"  name="ambulanceNo" placeholder="Enter vehicle no. of the ambulance.">
+                      <span class="color" *ngIf="addAmbulance.controls.ambulanceNo.invalid && addAmbulance.controls.ambulanceNo.dirty">*enter valid ambulance number</span>
+                      </div>
+                  </div>                
+              </div>
+            </div>
+            <div class="row" *ngIf="isUpdate">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class=" col-form-label">Ambulance Status<span class="asterisk-mark">*</span>:</label>
+                  <div>
+                      <select class="form-control" formControlName="status" name="status" required>
+                      <option value="" disabled>--Select--</option>
+                      <option value="In service">In service</option>
+                      <option value="Out of service">Out of service</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6"  *ngIf="isUpdate && addAmbulance.controls['status'].value === 'Out of service'">
+                <div class="form-group">
+                  <label class=" col-form-label">Remark :</label>
+                  <div>
+                    <input class="form-control" type="text" formControlName="remark" placeholder="Add reason.">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+    <div class="card-footer">
+      <button  *ngIf="!isUpdate" class="btn btn-md btn-primary float-right" [disabled]="addAmbulance.invalid" (click)="insertData();" >ADD</button>
+      <button  *ngIf="isUpdate" class="btn btn-md btn-primary float-right" [disabled]="addAmbulance.invalid" (click)="updateAmbulanceDetail();" >Update</button>
+      <button  *ngIf="isUpdate" class="btn btn-md btn-primary" (click)="cancel();" >Cancel</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card card-small mb-4">
+        <div class="card-header border-bottom">
+          <h6 class="m-0">Ambulance list</h6>
+        </div>
+        <div class="card-body p-0 pb-3 text-center">
+          <h6 class="no-record-found" *ngIf="ambulanceList.length == 0">No record found</h6>
+          <table class="table mb-0" *ngIf="ambulanceList.length != 0">
+            <thead class="bg-light">
+              <tr class="border-1">
+                  <th scope="col">SL</th>
+                  <th scope="col">Ambulance type</th>
+                  <th scope="col">Ambulance no. (Vehicle no.)</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of ambulanceList ; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ x.ambulanceType }}</td>
+                  <td>{{ x.ambulanceNo }}</td>
+                  <td>{{ x.status }}</td>
+                  <td>
+                      <button class="btn btn-sm btn-primary" type="submit" (click)="editAmbulanceModal(i, x);"> <i class="fas fa-edit"></i></button>
+                  </td>
+                  <td>
+                      <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal" data-target="#removeAmbulance" (click)="removeAmbulanceModal(i, x);"><i class="fas fa-trash"></i></button>
+                  </td>
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade danger-modal" id="removeAmbulance">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Confirm to remove</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+      </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+              <div class="form-group row">
+              <label class="col-md-6 col-form-label text-right" for="">Ambulance type :</label>
+              <label class="col-md-6 col-form-label" for="">{{ selectedAmb.ambulanceType }}</label>
+              <label class="col-md-6 col-form-label text-right" for="">Ambulance no. : (Vehicle no.)</label>
+              <label class="col-md-6 col-form-label" for="">{{ selectedAmb.ambulanceNo }}</label>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> <br>
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" (click)="removeAmbulance()" >Confirm</button>
+        </div>
+    </div>
+  </div>
+</div>
+

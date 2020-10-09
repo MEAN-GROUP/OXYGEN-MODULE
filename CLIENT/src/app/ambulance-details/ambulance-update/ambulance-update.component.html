@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-primary text-center"><strong>Update Ambulance Details</strong></div>
+      <div class="card-body">
+        <form class="form-horizontal" [formGroup]="ambulanceForm"  action="" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="hospitalid">Hospital Id  :</label>
+             <div class="col-md-9 ">
+                 <input class="form-control" id="hospitalid" formControlName="hospitalId" type="text"  placeholder="Enter Hospital Id">
+                </div>
+          </div>
+          <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="hospitalName">Hospital Name  :</label>
+             <div class="col-md-9 ">
+                 <input class="form-control" id="hospitalName" formControlName="hospitalName" type="text"  placeholder="Enter Hospital Name">
+                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="ambulanceno">Ambulance No  :</label>
+         <div class="col-md-9 ">
+             <input class="form-control " id="ambulanceno"  formControlName="ambulanceNo" type="text"  placeholder="Enter Ambulance Number " >
+             </div>
+      </div>
+         <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="ambulanceType">Ambulance Type</label>
+            <div class="col-md-9">
+                <select class="form-control" id="ambulanceType" formControlName="ambulanceType" >
+                <option value="" disabled>--Select Ambulance Type--</option>
+                <option value="Normal">Normal</option>
+                <option value="infectious disease Ambulance">Infectious</option>
+                </select>
+            </div>
+          </div>
+        </form>
+  
+        <div class="card-footer">
+          <button class="btn btn-md btn-primary float-right" (click)="onSubmit();" type="submit">Confirm</button>
+        </div>
+      </div>
+    </div>
+

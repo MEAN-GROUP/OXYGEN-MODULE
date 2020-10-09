@@ -1,0 +1,84 @@
+<div class="container">
+    <!-- <div>
+        <select [(ngModel)]="details">
+             <option value="sum">sum</option>
+             <option value="covid19;">covid19</option>
+             <option value="sum">other</option>
+        </select>
+        <button (click)="A()">Search</button>
+    </div> -->
+    
+    <div class="card">
+        <div class="card-header text-center">
+            <strong> Hospital List</strong>
+        </div>
+        <div class="card-body">
+            
+            <table class="table table-responsive-md table-bordered table-striped table-sm"  >
+                <thead>
+                    <tr>
+                        <th>Serial No</th>
+                        <th>Hospital ID</th>
+                        <th>Hospital Name</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <!-- <th>Latitude</th>
+                        <th>Longitude</th> -->
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let x of result ; let i = index">
+                            <td>{{i+1}}</td>
+                        <td>{{x.hospitalId}}</td>
+                        <td>{{x.hospitalName}}</td>
+                        <td>{{x.PhoneNo}}</td>
+                        <td>{{x.address}}</td>
+                        <!-- <td>{{x.latitude}}</td>
+                        <td>{{x.longitude}}</td> -->
+                        <td>
+                            <button class="btn btn-sm btn-info" type="submit" (click)="editdata(x.hospitalId);"> Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal" data-target="#deleteHospitalModal" (click)="viewHospitalDetails(x);">Delete</button>
+                        </td>
+                        </tr>
+                        
+                </tbody>
+                
+            </table>       
+           
+        </div>
+     </div> 
+     
+</div>
+<div class="modal fade" id="deleteHospitalModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header btn-danger">
+            <h5 class="modal-title ">Do you want to Delete!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" action="" method="post">
+                <div class="form-group row">
+                <label class="col-md-6 col-form-label text-right" for="">Hospital Id :</label>
+                <label class="col-md-6 col-form-label" for="">{{details.hospitalId}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Hospital Name:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.hospitalName}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Phone No :</label>
+                <label class="col-md-6 col-form-label" for="">{{details.PhoneNo}}</label>
+                <label class="col-md-6 col-form-label text-right" for="">Address:</label>
+                <label class="col-md-6 col-form-label" for="">{{details.address}}</label>
+                </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+           
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <br>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete(details.hospitalId);">Delete</button>
+                </div>
+                </div>
+        

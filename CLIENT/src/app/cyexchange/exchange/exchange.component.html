@@ -1,0 +1,174 @@
+<div class="main-content-container container-fluid px-4">
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <!-- <span class="text-uppercase page-subtitle">Overview</span> -->
+      <h3 class="page-title">Defect Cylinders</h3>
+    </div>
+  </div>
+<div class="card card-small mb-4">
+  <div class="card-header border-bottom">
+    <h6 class="m-0">Defect Cylinders</h6>
+  </div>
+  <div class="card-body list-group list-group-flush">
+    <form class="form-horizontal list-group-item"  [formGroup]="exchange" #exchangedata="ngForm" method="POST">
+        
+       <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="cylindertype">Cylinder Type<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <select class=" form-control" [(ngModel)]="cylinderType" formControlName="cylinderType" required>
+                    <option value="">--select--</option>
+                    <option>3kg</option>
+                    <option>5kg</option>
+                    <option>8kg</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="quantity">Quantity<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <input class=" form-control" id="quantity" type="number" [(ngModel)]="quantity"
+                  formControlName="quantity" min="1" max="100" placeholder="Eg:4">
+    
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="defectDetectedFrom">Defect detected From:<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <select class="form-control" [(ngModel)]="defectDetectedFrom" formControlName="defectDetectedFrom" required>
+                    <option value="" disabled >--select--</option>
+                    <option value="filledCylinder">Filled cylinder</option>
+                    <option value="bookedCylinder">Booked cylinder</option>
+                    <!-- <option value="deliveredCylinder">Delivered Cylinder (from customers)</option>
+                    <option value="blankedCylinder">Empty Cylinder</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class=" col-form-label" for="remark">Remark<span class="asterisk-mark">*</span>:</label>
+                <div>
+                  <!-- <input class="form-control" id="remark" type="text" [(ngModel)]="remark" formControlName="remark"> -->
+    <textarea class="form-control"  name="" id="remark" cols="10" rows="3" [(ngModel)]="remark" formControlName="remark" placeholder="Remarks"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <!-- <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="col-md-3 col-form-label" for="cylindertype"><b>Cylinder Type:</b></label>
+              <div>
+                <select class="form-control" name="cylinderType" [(ngModel)]="cylinderType" formControlName="cylinderType" required>
+                  <option value="" disabled>--select--</option>
+                  <option vaue="3kg">3kg</option>
+                  <option value="5kg">5kg</option>
+                  <option value="8kg">8kg</option>
+                </select>
+              </div>
+            </div>
+          </div>
+         <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-form-label" for="quantity"><b>Quantity : </b></label>
+              <div>
+                <input class="form-control" id="quantity" type="number" [(ngModel)]="quantity" formControlName="quantity" min="1" max="100" placeholder="Eg:5">
+
+              </div>
+            </div>
+          </div>
+        
+        </div> -->
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="col-md-3 col-form-label" for="defectDetectedFrom"><b>Defect detected From:</b></label>
+              
+              <div>
+                <select class="form-control" [(ngModel)]="defectDetectedFrom" formControlName="defectDetectedFrom" required>
+                  <option value="" disabled >--select--</option>
+                  <option value="filledCylinder">Filled cylinder</option>
+                  <option value="bookedCylinder">Booked cylinder</option>
+                
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-form-label" for="remark"><b>Remark : </b></label>
+              <div>
+                <input class="form-control" id="remark" type="text" [(ngModel)]="remark" formControlName="remark">
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </form>
+  </div>
+    <div class="card-footer">
+      <button type="button" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal" [disabled]="exchange.invalid" >ADD</button>    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title">Review</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body  text-center">
+              <form class="form-horizontal" action="" method="POST">
+                <div class="form-row-group">
+              <label class="col-md-6 col-form-label text-right" for="">Cylinder Type :</label>
+             <label class="col-md-6 col-form-label" for="">{{cylinderType}}</label>
+             <label class="col-md-6 col-form-label text-right" for="">Quantity:</label>
+             <label class="col-md-6 col-form-label" for="">{{quantity}}</label>
+             <label class="col-md-6 col-form-label text-right" for="">Defect detected From:</label>
+             <label class="col-md-6 col-form-label" for="">{{defectDetectedFrom}}</label>
+             <label class="col-md-6 col-form-label text-right" for="">Remark:</label>
+             <label class="col-md-6 col-form-label" for="">{{remark}}</label>
+            
+            </div>
+            </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+             
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <br>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="onadd();">Confirm</button>
+            </div>
+            
+          </div>
+      
+    </div>     
+  
+  
+  </div>
+  
+  
+  

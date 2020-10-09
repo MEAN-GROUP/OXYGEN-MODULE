@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-primary text-center"><strong>Update Hospital Details</strong></div>
+      <div class="card-body">
+        <form class="form-horizontal" [formGroup]="hospitalForm"  action="" method="post" enctype="multipart/form-data">
+          <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="hospitalName">Hospital Name  :</label>
+             <div class="col-md-9 ">
+                 <input class="form-control" id="hospitalName" formControlName="hospitalName" type="text"  placeholder="Enter Hospital Name">
+                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="PhoneNo">Phone Number  :</label>
+         <div class="col-md-9 ">
+             <input class="form-control " id="PhoneNo"  formControlName="PhoneNo" type="text"  placeholder="Enter Hospital Phone Number " >
+             </div>
+      </div>
+         <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="address"> Hospital Address  :</label>
+            <div class="col-md-9 ">
+                <input class="form-control " id="address" formControlName="address" type="text" placeholder="Enter Hospital Address ">
+                </div>
+         </div>
+         <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="latitude"> Hospital Latitude  :</label>
+        <div class="col-md-9 ">
+            <input class="form-control " id="latitude" formControlName="latitude" type="number"  placeholder="Eg:98.367626 ">
+             </div>
+    </div>
+    <div class="form-group row">
+       <label class="col-md-3 col-form-label" for="longitude"> Hospital Longitude :</label>
+   <div class="col-md-9 ">
+       <input class="form-control " id="longitude"  formControlName="longitude" type="number"  placeholder="Eg:78.367626" >
+       </div>
+</div>
+        </form>
+  
+        <div class="card-footer">
+          <button class="btn btn-md btn-primary float-right" (click)="onSubmit();" type="submit">Confirm</button>
+        </div>
+      </div>
+    </div>
